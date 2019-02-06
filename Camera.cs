@@ -8,7 +8,7 @@ namespace MyGame
     public float Y;
 
     public int Width;
-    public int Height;
+    public int Height; 
 
     public void reset()
     {
