@@ -788,11 +788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ksaanen\\Desktop\\New folder\\MyGame\\MyGame.csproj",
+      "projectUniqueName": "C:\\git\\CSharp.MonoGame.Game\\MyGame.csproj",
       "projectName": "MyGame",
-      "projectPath": "C:\\Users\\ksaanen\\Desktop\\New folder\\MyGame\\MyGame.csproj",
+      "projectPath": "C:\\git\\CSharp.MonoGame.Game\\MyGame.csproj",
       "packagesPath": "C:\\Users\\ksaanen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ksaanen\\Desktop\\New folder\\MyGame\\obj\\",
+      "outputPath": "C:\\git\\CSharp.MonoGame.Game\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
