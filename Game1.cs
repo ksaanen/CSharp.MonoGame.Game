@@ -9,11 +9,19 @@ namespace MyGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Texture2D dirt;
+
+        float PlayerVelocity = 6.0f;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 600;
+            
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
         }
 
         protected override void Initialize()
@@ -26,6 +34,7 @@ namespace MyGame
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            dirt = new Texture2D(GraphicsDevice, 16, 16);
 
             // TODO: use this.Content to load your game content here
         }
@@ -42,11 +51,21 @@ namespace MyGame
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+          Level1 level = new Level1();
+          GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+          spriteBatch.Begin();
 
-            base.Draw(gameTime);
+          for (int x = 0; x < level.Width; x++) {
+            for (int y = 0; y < level.Height; y++) {
+              spriteBatch.Draw(dirt, new Vector2(x * level.TileWidth, y * level.TileHeight), Color.Red);
+            }
+          }
+
+          spriteBatch.End();
+          // TODO: Add your drawing code here
+
+          base.Draw(gameTime);
         }
     }
 }
