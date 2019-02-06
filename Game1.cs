@@ -61,25 +61,25 @@ namespace MyGame
                 Exit();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                actor.Position.Y -= 1.0f;
+                actor.PosY -= 1.0f;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                actor.Position.X += 1.0f;
+                actor.PosX += 1.0f;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                actor.Position.Y += 1.0f;
+                actor.PosY += 1.0f;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
-                actor.Position.X -= 1.0f;
+                actor.PosX -= 1.0f;
 
             // TODO: Add your update logic here
-            camera.X = actor.Position.X;
-            camera.Y = actor.Position.Y;
+            camera.X = actor.PosX;
+            camera.Y = actor.PosY;
             offset.X = camera.X - ((float)visibleTiles.X / 2.0f);
             offset.Y = camera.Y - ((float)visibleTiles.Y / 2.0f);
 
-            actor.VelocityX = 0.0f;
-            actor.VelocityY = 0.0f;
+            actor.VelX = 0.0f;
+            actor.VelY = 0.0f;
             
 
             // Clamp camera
@@ -121,7 +121,7 @@ namespace MyGame
             }
           }
 
-          spriteBatch.Draw(actor.Sprite, new Vector2((actor.Position.X - offset.X) * Level1.TileWidth, (actor.Position.Y - offset.Y) * Level1.TileHeight), Color.White);
+          spriteBatch.Draw(actor.Sprite, new Vector2((actor.PosX - offset.X) * Level1.TileWidth, (actor.PosY - offset.Y) * Level1.TileHeight), Color.White);
 
           spriteBatch.End();
           // TODO: Add your drawing code here
