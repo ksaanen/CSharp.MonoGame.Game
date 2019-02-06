@@ -4,11 +4,11 @@ namespace MyGame
 {
   public class Camera
   {
-    public float X;
-    public float Y;
+    public float X {get; set;}
+    public float Y {get; set;}
 
-    public int Width;
-    public int Height; 
+    public int Width {get; set;}
+    public int Height {get; set;}
 
     public void reset()
     {
