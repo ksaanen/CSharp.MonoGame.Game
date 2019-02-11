@@ -85,11 +85,17 @@ namespace MyGame
             // Clamp camera
             if (offset.X < 0) offset.X = 0;
             if (offset.Y < 0) offset.Y = 0;
-            if (offset.X > Level1.Width - visibleTiles.X) offset.X = Level1.Width - visibleTiles.X;
-            if (offset.Y > Level1.Height - visibleTiles.Y) offset.Y = Level1.Height - visibleTiles.Y;
+            if (offset.X > Level1.TilesX - visibleTiles.X) offset.X = Level1.TilesX - visibleTiles.X;
+            if (offset.Y > Level1.TilesY - visibleTiles.Y) offset.Y = Level1.TilesY - visibleTiles.Y;
+            
+            // Clamp actor
+            if (actor.PosX < 0) actor.PosX = 0;
+            if (actor.PosY < 0) actor.PosY = 0;
+            if (actor.PosX > Level1.TilesX - 1) actor.PosX = Level1.TilesX - 1;
+            if (actor.PosY > Level1.TilesY - 1) actor.PosY = Level1.TilesY - 1;
 
-            float TileOffsetX = (offset.X - (int)offset.X) * Level1.TileWidth;
-		    float TileOffsetY = (offset.Y - (int)offset.Y) * Level1.TileHeight;
+            float TileOffsetX = (offset.X - (int)offset.X) * Level1.TilesX;
+		    float TileOffsetY = (offset.Y - (int)offset.Y) * Level1.TilesY;
 
             base.Update(gameTime);
         }

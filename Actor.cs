@@ -15,6 +15,10 @@ namespace MyGame
     public float PosX {get; set;}
     public float PosY {get; set;}
 
+    public static int Width = 16;
+
+    public static int Height = 16;
+
     private float walkSpeed = 4.0f;
 
     public Actor(int _x = 0, int _y = 0)

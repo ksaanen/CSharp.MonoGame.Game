@@ -4,17 +4,28 @@ namespace MyGame
 {
   public class Level1
   {
-      public static int Width = 100;
-      public static int Height = 64;
+      public static int TilesX = 100;
+      public static int TilesY = 64;
 
       public static int TileWidth = 16;
       public static int TileHeight = 16;
 
+      public static int Width;
+
+      public static int Height;
+
+      public Level1()
+      {
+        // Calculate Width and Height
+        Width = TilesX * TileWidth;
+        Height = TilesY * TileHeight;
+      }
+
       public static char getTile(int x, int y)
       {
-        if (x >= 0 && x < Width && y >= 0 && y < Height)
+        if (x >= 0 && x < TilesX && y >= 0 && y < TilesY)
         {
-          return TileString[y * Width + x];
+          return TileString[y * TilesX + x];
         }
         else
         {
