@@ -15,6 +15,9 @@ namespace MyGame
     public float PosX {get; set;}
     public float PosY {get; set;}
 
+    public float NewPosX {get; set;}
+    public float NewPosY {get; set;}
+
     public static int Width = 16;
 
     public static int Height = 16;
@@ -25,6 +28,8 @@ namespace MyGame
     {
       PosX = _x;
       PosY = _y;
+      NewPosX = _x;
+      NewPosX = _y;
     }
 
   }

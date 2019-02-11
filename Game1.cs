@@ -61,25 +61,28 @@ namespace MyGame
                 Exit();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                actor.PosY -= 1.0f;
+                actor.NewPosY -= 1.0f;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                actor.PosX += 1.0f;
+                actor.NewPosX += 1.0f;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                actor.PosY += 1.0f;
+                actor.NewPosY += 1.0f;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
-                actor.PosX -= 1.0f;
+                actor.NewPosX -= 1.0f;
 
             // TODO: Add your update logic here
-            camera.X = actor.PosX;
-            camera.Y = actor.PosY;
+            camera.X = actor.NewPosX;
+            camera.Y = actor.NewPosY;
             offset.X = camera.X - ((float)visibleTiles.X / 2.0f);
             offset.Y = camera.Y - ((float)visibleTiles.Y / 2.0f);
 
             actor.VelX = 0.0f;
             actor.VelY = 0.0f;
+
+            float grafity = 0.5f;
+            actor.NewPosY += grafity;
             
 
             // Clamp camera
@@ -89,13 +92,23 @@ namespace MyGame
             if (offset.Y > Level1.TilesY - visibleTiles.Y) offset.Y = Level1.TilesY - visibleTiles.Y;
             
             // Clamp actor
-            if (actor.PosX < 0) actor.PosX = 0;
-            if (actor.PosY < 0) actor.PosY = 0;
-            if (actor.PosX > Level1.TilesX - 1) actor.PosX = Level1.TilesX - 1;
-            if (actor.PosY > Level1.TilesY - 1) actor.PosY = Level1.TilesY - 1;
+            if (actor.NewPosX < 0) actor.NewPosX = 0;
+            if (actor.NewPosY < 0) actor.NewPosY = 0;
+            if (actor.NewPosX > Level1.TilesX - 1) actor.NewPosX = Level1.TilesX - 1;
+            if (actor.NewPosY > Level1.TilesY - 1) actor.NewPosY = Level1.TilesY - 1;
+
+            // Collission detection
+            if (Level1.getTile((int)actor.NewPosX, (int)actor.NewPosY) == '#') {
+                actor.NewPosX = actor.PosX;
+                actor.NewPosY = actor.PosY;
+            }
 
             float TileOffsetX = (offset.X - (int)offset.X) * Level1.TilesX;
 		    float TileOffsetY = (offset.Y - (int)offset.Y) * Level1.TilesY;
+
+            // Update actor position
+            actor.PosX = actor.NewPosX;
+            actor.PosY = actor.NewPosY;
 
             base.Update(gameTime);
         }

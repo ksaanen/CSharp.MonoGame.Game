@@ -16,8 +16,6 @@ namespace MyGame
       Y = 0;
     }
 
-    
-
   }
 
 }
