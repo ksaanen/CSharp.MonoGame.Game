@@ -23,17 +23,11 @@ namespace MyGame {
       _tileHeight = Texture.Height / Rows;
     }
 
-    public void getTile(int x, int y)
-    {
-      
+    public void Update(){
+      // make optional animated sprite possible
     }
 
-    public void getTiles(int x, int y, int cols, int rows)
-    {
-
-    }
-
-    public void Draw(SpriteBatch spriteBatch, int column, int row,  Vector2 location)
+    public void Draw(SpriteBatch spriteBatch, int column, int row, Vector2 location)
     {
       int width = Texture.Width / Columns;
       int height = Texture.Height / Rows;
