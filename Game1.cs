@@ -13,6 +13,9 @@ namespace MyGame
         SpriteBatch spriteBatch;
 
         Texture2D dirt;
+
+        Texture2D spritesheetimage;
+
         Actor actor = new Actor();
         Level1 level = new Level1();
 
@@ -21,6 +24,8 @@ namespace MyGame
         Camera camera = new Camera();
 
         VisibleTiles visibleTiles;
+
+        SpriteMap spriteMap;
 
         Vector2 TileOffset;
 
@@ -49,6 +54,9 @@ namespace MyGame
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            spritesheetimage = Content.Load<Texture2D>("spritesheet");
+            spriteMap = new SpriteMap(spritesheetimage, 10, 10);
+
             dirt = Content.Load<Texture2D>("dirt");
             actor.Sprite = Content.Load<Texture2D>("dirt");
 
@@ -111,6 +119,7 @@ namespace MyGame
             actor.PosY = actor.NewPosY;
 
             base.Update(gameTime);
+            
         }
 
         protected override void Draw(GameTime gameTime)
@@ -144,6 +153,8 @@ namespace MyGame
 
           spriteBatch.End();
           // TODO: Add your drawing code here
+
+          spriteMap.Draw(spriteBatch, 2, 0, new Vector2(0, 0));
 
           base.Draw(gameTime);
         }
